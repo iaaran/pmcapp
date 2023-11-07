@@ -1,15 +1,21 @@
-user_prompt = "Enter a todo:"
-<<<<<<< HEAD
 
 todos = []
 
 while True:
-    todo = input(user_prompt)
-    todos.append(todo.capitalize())
-    print(todo.upper())
-    print(todo.lower())
-    print(todos)
+    user_action = input("Type add or show or exit :")
+    user_action = user_action.strip()
 
-# print("type of todo", type(todo))
-# print("type of prompt", type(user_prompt))
-# print("type of todos", type(todos))
+    match user_action:
+        case "add":
+            todo = input("Enter the todo:  ")
+            todos.append(todo.capitalize())
+        case "show":
+            for item in todos:
+                print(item)
+        case "exit":
+            break
+        case _:
+            print("Hey, you entered an unknown command")
+
+print("Bye!")
+
