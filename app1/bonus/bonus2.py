@@ -23,3 +23,22 @@ for char in "letters":
     print(char.upper())
 
 print("Examples were executed successfully !!!")
+
+# Day4 Examples to understand for loop, list and tuples
+# List is mutable means modifiable, editable, and it will be initialized with square parentheses
+# The below example will rename then filenames by changing first occurrence of dot with hyphen and print.
+filenames = ["1.Raw Data.txt", "2.Reports.txt", "3.Presentations.txt"]
+
+for filename in filenames:
+    filename = filename.replace('.', '-', 1)
+    print(filename)
+
+# Example for immutable types are string and tuples
+# string types are immutable means not possible to edit any character in a string
+# rather only possible to assign new string
+# tuple is also like list, but it shall be initialized by using round braces.
+# It's not modifiable
+
+weeks_name = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
+print(type(weeks_name))
+weeks_name[1] = "Monday"

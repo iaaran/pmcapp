@@ -6,7 +6,7 @@
 # answers = ['Yes', 'No', 'Yes', 'No', my_answer]
 # print(answers)
 
-#Day2 coding exercises2
+# Day2 coding exercises2
 name = input("Enter your name : ")
 # Commented the while loop intentionally to avoid endless loop execution in repos
 # while True:
