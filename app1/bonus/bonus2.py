@@ -41,4 +41,19 @@ for filename in filenames:
 
 weeks_name = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
 print(type(weeks_name))
-weeks_name[1] = "Monday"
+# weeks_name[1] = "Monday" # tuple variable is not modifiable
+
+# Example usage of enumerate function in for loop and list sorting
+name_list = ["John", "ben", "singh"]
+# list sort method sorts the content in ascending order by default.
+# In sorting, capital letter has higher precedence than small letter i.e  J then b not b, J
+name_list.sort()
+
+for index, item in enumerate(name_list):
+    row = f"{index + 1}.{item}"
+    print(row)
+
+# Example of using multiple variable in for loop
+matrix3x3 = [[1, 4, 6], [3, 1, 8], [4, 6, 1]]
+for i, j, k in matrix3x3:
+    print(i, j, k)
