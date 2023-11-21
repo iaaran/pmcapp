@@ -1,11 +1,11 @@
 password = input("Enter new password")
 
-result = []  # list 
+result = {}  # initializd dictionary
 
 if len(password) >= 8:
-  result.append(True)
+  result["length"] = True
 else:
-  result.append(False)
+  result["length"] = False
   
 digit = False
 uppercase = False
@@ -16,12 +16,14 @@ for i in password:
   if i.isupper():
     uppercase = True
 
-result.append(digit)
-result.append(uppercase)
+result["digits"] = digit
+result["upper-case"] = uppercase
 
 print(result)
+# print(all(result)) This will print True always
 
-if all(result):       # if all the values in the list are True then it is True
+ # if all the values in the dict are True then it is True
+if all(result.values()):   
   print("Strong Password")
 else:
   print("Weak Password")
