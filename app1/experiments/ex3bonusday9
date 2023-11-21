@@ -21,6 +21,7 @@ result["upper-case"] = uppercase
 
 print(result)
 # print(all(result)) This will print True always
+print(result.values()) # This prints dict_values
 
  # if all the values in the dict are True then it is True
 if all(result.values()):   
