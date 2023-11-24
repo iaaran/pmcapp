@@ -81,11 +81,11 @@ print("Example 7 was executed successfully !!!")
 # Example for list comprehension
 filenames = ["1.doc", "2.report", ".presentation"]
 print(filenames)
-filenames = [filename.replace('.', '-') + ".txt" for filename in filenames ]
+filenames = [filename.replace('.', '-') + ".txt" for filename in filenames]
 print(filenames)
 print("Example 8 was executed successfully !!!")
 
 # Example of using list comprehension and sum function
-user_entries =['10', '19.1', '20'] # values are in string
+user_entries = ['10', '19.1', '20']   # values are in string
 print(sum([float(item) for item in user_entries]))
 print(" Example 9 using sum function and list comprehension was executed & answer is 49.1")
