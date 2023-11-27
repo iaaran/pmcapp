@@ -1,7 +1,12 @@
-def get_todos():
-    with open('todos.txt', 'r') as file_local:
-        todos_local = file_local.readlines()
+def get_todos(filepath):
+    with open(filepath, 'r') as file:
+        todos_local = file.readlines()
     return todos_local
+
+
+def set_todos(filepath, todos_arg):
+    with open(filepath, 'w') as file:
+        file.writelines(todos_arg)
 
 
 while True:
@@ -12,27 +17,27 @@ while True:
     if user_action.startswith("add"):
         todo = user_action[4:]
 
-        todos = get_todos()
+        todos = get_todos("todos.txt")
 
         todos.append(todo + '\n')
         print(todos)
 
-        with open('todos.txt', 'w') as file:
-            file.writelines(todos)
+        set_todos("todos.txt", todos)
 
     elif user_action.startswith("show"):
-        todos = get_todos()
+        todos = get_todos("todos.txt")
 
         for index, item in enumerate(todos):  # enumerate function is used to get index value
             item = item.strip('\n')   # to remove the new line character
             row = f"{index + 1}-{item}"   # f string is used for formatted display
             print(row)
+
     elif user_action.startswith("edit"):
         try:
             number = int(user_action[5:])
             number = number - 1
 
-            todos = get_todos()
+            todos = get_todos("todos.txt")
 
             if 0 < number < len(todos):
                 new_todo = input("Enter new todo: ") + "\n"
@@ -40,8 +45,8 @@ while True:
             else:
                 print("The Todo number is not in the list")
 
-            with open('todos.txt', 'w') as file:
-                file.writelines(todos)
+            set_todos("todos.txt", todos)
+
         except ValueError:
             print("Your command in invalid")
             continue
@@ -51,12 +56,12 @@ while True:
             number = int(user_action[5:])
             index = number - 1
 
-            todos = get_todos()
+            todos = get_todos("todos.txt")
+
             todo_to_remove = todos[index].strip('\n')
             todos.pop(index)
 
-            with open('todos.txt', 'w') as file:
-                file.writelines(todos)
+            set_todos("todos.txt", todos)
 
             print(f"Todo '{todo_to_remove}' was done")
         except IndexError:
