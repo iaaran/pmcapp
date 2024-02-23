@@ -1,7 +1,10 @@
 # from functions import get_todos, set_todos
 
-import functions
+import functions    # local module
+import time         # standard python module
 
+now = time.strftime("%d %b %Y %H:%M:%S")
+print("It is", now)
 while True:
     # Get user input and strip space char from it
     user_action = input("Type add, show, edit, done or exit :")
