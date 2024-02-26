@@ -1,2 +1,2 @@
-first todo item
-code python
+First task for todo
+Code Python

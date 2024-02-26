@@ -33,7 +33,7 @@ while True:
 
             todos = functions.get_todos()
 
-            if 0 < number < len(todos):
+            if 0 <= number < len(todos):
                 new_todo = input("Enter new todo: ") + "\n"
                 todos[number] = new_todo
             else:
