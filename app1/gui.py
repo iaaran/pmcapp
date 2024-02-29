@@ -14,7 +14,8 @@ add_button = sg.Button("Add", size=10)
 list_box = sg.Listbox(values=todos, key='listTodo',
                       enable_events="True", size=[40, 10])
 edit_button = sg.Button("Edit", size=10)
-done_button = sg.Button("Done", size=10)
+done_button = sg.Button(image_source="image/done.png", mouseover_colors="lightblue2",
+                        tooltip="Done the To-Do", size=10, key='Done')
 exit_button = sg.Button("Exit", size=10)
 
 row3 = [[sg.Column([[input_box]]), sg.Column([[add_button]])]]
@@ -23,7 +24,7 @@ column1 = [[list_box]]
 column2 = [[edit_button],[done_button], [exit_button]]
 row4 = [[sg.Column(column1),sg.Column(column2)]]
 
-layout = [ [clock], [label], row3, row4 ]
+layout = [ [clock], [label], row3, row4]
 window = sg.Window("My To-Do App", layout, font=('Helvetica',20))
 
 
