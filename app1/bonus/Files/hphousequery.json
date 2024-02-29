@@ -1,0 +1,62 @@
+[
+  {
+    "query": "Which Persoality best describes you?",
+    "options": [
+      "friendly",
+      "rude",
+      "passionate",
+      "scared",
+      "smart",
+      "other"
+    ],
+    "points": [30, 20, 50, 40, 10, 60]
+  },
+    {
+    "query": "What do you like most?",
+    "options": [
+      "playing",
+      "family",
+      "adventure",
+      "lonelyness",
+      "studies",
+      "theme park"
+    ],
+    "points": [60, 50, 20, 30, 10, 40]
+  },
+    {
+    "query": "Choose an occupation.",
+    "options": [
+      "athlete",
+      "scientist",
+      "engineer",
+      "no job",
+      "teacher",
+      "work in a company"
+    ],
+    "points": [30, 20, 50, 60, 10, 40]
+  },
+    {
+    "query": "Choose on type of food.",
+    "options": [
+      "spicy",
+      "sweet",
+      "unique",
+      "normal",
+      "all of these",
+      "other"
+    ],
+    "points": [50, 20, 30, 40, 60, 10]
+  },
+    {
+    "query": "What is you favourite element?",
+    "options": [
+      "fire",
+      "ground",
+      "air",
+      "water",
+      "magic",
+      "other"
+    ],
+    "points": [60, 10, 20, 30, 40, 50]
+  }
+]
