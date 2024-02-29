@@ -1,6 +1,6 @@
 [
   {
-    "query": "Which Persoality best describes you?",
+    "query": "Which Personality best describes you?",
     "options": [
       "friendly",
       "rude",
@@ -17,7 +17,7 @@
       "playing",
       "family",
       "adventure",
-      "lonelyness",
+      "loneliness",
       "studies",
       "theme park"
     ],
