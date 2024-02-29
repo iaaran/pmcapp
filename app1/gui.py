@@ -1,24 +1,30 @@
 import functions
 import PySimpleGUI as sg
+import time
+
 
 todos = functions.get_todos()
 
+sg.theme("SystemDefault")
 
+clock = sg.Text(time.strftime("%d %b %Y %H:%M:%S"), key='clock')
 label = sg.Text("Type in a to-do")
-input_box = sg.InputText(tooltip = "Enter Todo", key='todo')
-add_button = sg.Button("Add")
+input_box = sg.InputText(tooltip="Enter Todo", key='todo', size=40)
+add_button = sg.Button("Add", size=10)
 list_box = sg.Listbox(values=todos, key='listTodo',
-                      enable_events="True", size=[45, 10])
-edit_button = sg.Button("Edit")
-done_button = sg.Button("Done")
-exit_button = sg.Button("Exit")
+                      enable_events="True", size=[40, 10])
+edit_button = sg.Button("Edit", size=10)
+done_button = sg.Button("Done", size=10)
+exit_button = sg.Button("Exit", size=10)
 
-window = sg.Window("My To-Do App",
-                   layout = [[label],
-                             [input_box, add_button],
-                             [list_box, edit_button, done_button],
-                             [exit_button]],
-                   font=('Helvetica',20))
+row3 = [[sg.Column([[input_box]]), sg.Column([[add_button]])]]
+
+column1 = [[list_box]]
+column2 = [[edit_button],[done_button], [exit_button]]
+row4 = [[sg.Column(column1),sg.Column(column2)]]
+
+layout = [ [clock], [label], row3, row4 ]
+window = sg.Window("My To-Do App", layout, font=('Helvetica',20))
 
 
 def update_todos_window(atodos):
@@ -28,30 +34,34 @@ def update_todos_window(atodos):
 
 
 while True:
-    event, values = window.read()
-    print(event)
-    print(values)
+    event, values = window.read(timeout=1000)
+    window['clock'].update(value=time.strftime("%d %b %Y %H:%M:%S"))
     match event:
         case 'Add':
-           #  todos = functions.get_todos()
-            new_todo = values['todo'] + '\n'
-            todos.append(new_todo)
-            update_todos_window(todos)
+           if len((values['todo']).strip()) != 0:
+                new_todo = values['todo'] + '\n'
+                todos.append(new_todo)
+                update_todos_window(todos)
 
         case 'Edit':
-            todo_to_edit = values['listTodo'][0]
-            new_todo = values['todo'] + '\n'
-            index = todos.index(todo_to_edit)
-            todos[index] = new_todo
-            update_todos_window(todos)
+            try:
+                todo_to_edit = values['listTodo'][0]
+                new_todo = values['todo'] + '\n'
+                index = todos.index(todo_to_edit)
+                todos[index] = new_todo
+                update_todos_window(todos)
+            except IndexError:
+                sg.popup("Please select an item first", font=("Helvetica", 16), title="Error Message")
 
         case 'listTodo':
             window['todo'].update(value=values['listTodo'][0])
         case 'Done':
-            todo_done = values['listTodo'][0]
-            todos.remove(todo_done)
-            update_todos_window(todos)
-
+            try:
+                todo_done = values['listTodo'][0]
+                todos.remove(todo_done)
+                update_todos_window(todos)
+            except IndexError:
+                sg.popup("Please select an item first", font=("Helvetica", 16), title="Error Message")
         case 'Exit':
             break
         case sg.WIN_CLOSED:
