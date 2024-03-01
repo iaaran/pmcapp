@@ -21,11 +21,11 @@ exit_button = sg.Button("Exit", size=10)
 row3 = [[sg.Column([[input_box]]), sg.Column([[add_button]])]]
 
 column1 = [[list_box]]
-column2 = [[edit_button],[done_button], [exit_button]]
-row4 = [[sg.Column(column1),sg.Column(column2)]]
+column2 = [[edit_button], [done_button], [exit_button]]
+row4 = [[sg.Column(column1), sg.Column(column2)]]
 
-layout = [ [clock], [label], row3, row4]
-window = sg.Window("My To-Do App", layout, font=('Helvetica',20))
+layout = [[clock], [label], row3, row4]
+window = sg.Window("My To-Do App", layout, font=('Helvetica', 20))
 
 
 def update_todos_window(atodos):
@@ -36,10 +36,12 @@ def update_todos_window(atodos):
 
 while True:
     event, values = window.read(timeout=1000)
+    if event == sg.WIN_CLOSED:
+        break
     window['clock'].update(value=time.strftime("%d %b %Y %H:%M:%S"))
     match event:
         case 'Add':
-           if len((values['todo']).strip()) != 0:
+            if len((values['todo']).strip()) != 0:
                 new_todo = values['todo'] + '\n'
                 todos.append(new_todo)
                 update_todos_window(todos)
@@ -55,7 +57,10 @@ while True:
                 sg.popup("Please select an item first", font=("Helvetica", 16), title="Error Message")
 
         case 'listTodo':
-            window['todo'].update(value=values['listTodo'][0])
+            try:
+                window['todo'].update(value=values['listTodo'][0])
+            except IndexError:
+                pass
         case 'Done':
             try:
                 todo_done = values['listTodo'][0]
@@ -65,7 +70,6 @@ while True:
                 sg.popup("Please select an item first", font=("Helvetica", 16), title="Error Message")
         case 'Exit':
             break
-        case sg.WIN_CLOSED:
-            break
+
 
 window.close()
