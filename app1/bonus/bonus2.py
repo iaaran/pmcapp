@@ -23,6 +23,7 @@ for char in "letters":
     print(char.upper())
 
 print("Example 2 was executed successfully !!!")
+print("\n")
 
 # Day4 Examples to understand for loop, list and tuples
 # List is mutable means modifiable, editable, and it will be initialized with square parentheses
@@ -34,7 +35,7 @@ for filename in filenames:
     print(filename)
 
 print("Example 3 was executed successfully !!!")
-
+print("\n")
 # Example for immutable types are string and tuples
 # string types are immutable means not possible to edit any character in a string
 # rather only possible to assign new string
@@ -45,7 +46,7 @@ weeks_name = ("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat")
 print(type(weeks_name))
 # weeks_name[1] = "Monday" # tuple variable is not modifiable
 
-print("Example 4 was executed successfully !!!")
+print("Example 4 was executed successfully !!! \n")
 # Example usage of enumerate function in for loop and list sorting
 name_list = ["John", "ben", "singh"]
 # list sort method sorts the content in ascending order by default.
@@ -55,14 +56,14 @@ name_list.sort()
 for index, item in enumerate(name_list):
     row = f"{index + 1}.{item}"
     print(row)
-print("Example 5 was executed successfully !!!")
+print("Example 5 was executed successfully !!! \n")
 # Example of using multiple variable in for loop
 matrix3x3 = [[1, 4, 6], [3, 1, 8], [4, 6, 1]]
 for i, j, k in matrix3x3:
     print(i, j)
     print(k)
     print(i, j, k, "\n")
-print("Example 6 was executed successfully !!!")
+print("Example 6 was executed successfully !!!\n")
 # Example of using zip function
 # Initializing long list values in multiple lines
 contents = ["All carrots are to be sliced longitudinally.",
@@ -76,14 +77,14 @@ for content, file_name in zip(contents, file_names):
     file = open(file_name, 'w')
     file.write(content)
     file.close()
-print("Example 7 was executed successfully !!!")
+print("Example 7 was executed successfully !!!\n")
 
 # Example for list comprehension
 filenames = ["1.doc", "2.report", ".presentation"]
 print(filenames)
 filenames = [filename.replace('.', '-') + ".txt" for filename in filenames]
 print(filenames)
-print("Example 8 was executed successfully !!!")
+print("Example 8 was executed successfully !!!\n")
 
 # Example of using list comprehension and sum function
 user_entries = ['10', '19.1', '20']   # values are in string
