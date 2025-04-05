@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+import FreeSimpleGUI as sg
 from zip_creator import make_archive, extract_archive
 
 
