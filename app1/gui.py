@@ -14,8 +14,12 @@ add_button = sg.Button("Add", size=10)
 list_box = sg.Listbox(values=todos, key='listTodo',
                       enable_events="True", size=[40, 10])
 edit_button = sg.Button("Edit", size=10)
-done_button = sg.Button(image_source="image/done.png", mouseover_colors="lightblue2",
-                        tooltip="Done the To-Do", size=10, key='Done')
+done_button = sg.Button("Done", size=10)
+#
+# unable to locate image folder with this code in winoows. Need to resolve.
+# 
+# done_button = sg.Button(image_source="image/done.png", mouseover_colors="lightblue2",
+#                         tooltip="Done the To-Do", size=10, key='Done')
 exit_button = sg.Button("Exit", size=10)
 
 row3 = [[sg.Column([[input_box]]), sg.Column([[add_button]])]]
